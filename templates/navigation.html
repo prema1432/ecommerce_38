@@ -1,7 +1,31 @@
-<a href="/admin">ADMIN</a> <br> <br>
-<a href="{% url 'index' %}">USERS</a> <br> <br>
-<a href="{% url 'products' %}">PRODUCTS</a> <br> <br>
-<a href="{% url 'computers' %}">Computer PRODUCTS</a> <br> <br>
-<a href="{% url 'cart' %}">CART</a> <br> <br>
-<a href="{% url 'wishlist' %}">Wishlist</a> <br> <br>
-<a href="{% url 'index' %}">ORDERS</a> <br> <br>
+{#<a href="/admin">ADMIN</a> <br> <br>#}
+{#<a href="{% url 'index' %}">USERS</a> <br> <br>#}
+{#<a href="{% url 'products' %}">PRODUCTS</a> <br> <br>#}
+{#<a href="{% url 'computers' %}">Computer PRODUCTS</a> <br> <br>#}
+{#<a href="{% url 'cart' %}">CART</a> <br> <br>#}
+{#<a href="{% url 'wishlist' %}">Wishlist</a> <br> <br>#}
+{#<a href="{% url 'index' %}">ORDERS</a> <br> <br>#}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'products' %}">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'cart' %}">Cart</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="{% url 'wishlist' %}" tabindex="-1" aria-disabled="true">Wishlist</a>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,20 @@
+body {
+    background-color: bisque;
+}
+
+p {
+    color: green;
+
+}
+
+h1 {
+    color: red;
+}
+
+.myheader {
+    color: blue;
+}
+
+#mybtn {
+    color: purple;
+}
