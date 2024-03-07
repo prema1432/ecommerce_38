@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Creating New Book : </h1>
+    <hr>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        Title : <input type="text" name="title" placeholder="title"> <br>
+        Author : <input type="text" name="author"> <br>
+        no of pages: <input type="number" name="num_pages"> <br>
+        Is published : <input type="checkbox" name="is_published"> <br>
+        Description : <input type="text" name="description"> <br>
+        Qualification : <input type="text" name="qualification"> <br>
+        Profile Pic : <input type="file" name="profile_pic">  <br>
+        <br>
+
+        <button type="submit">Create Book</button>
+
+    </form>
+{% endblock %}

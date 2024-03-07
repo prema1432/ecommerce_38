@@ -3,6 +3,113 @@
     <h1>Welcome to Products Page </h1>
     <hr>
     {% include 'navigation.html' %}
+    <br>
+    {{ books }}
+    <br>
+    {#    title = models.CharField(max_length=250)#}
+    {#    author = models.CharField(max_length=300)#}
+    {#    num_pages = models.IntegerField()#}
+    {#    is_published = models.BooleanField()#}
+    {#    description = models.TextField(null=True, blank=True)#}
+    {#    qualification = models.CharField(max_length=10, null=True, blank=True)#}
+
+    <h1>Books for loop</h1>
+    {% for book in books %}
+        Title:    {{ book.title }} <br>
+        Author : {{ book.author }} <br>
+        No of pages :    {{ book.num_pages }} <br>
+        Published :  {{ book.is_published }} <br>
+        Description :   {{ book.description }} <br>
+        Qualification :   {{ book.qualification }} <br> <br>
+
+    {% endfor %}
+
+    <br>
+    <h1>Card Data</h1>
+    {% for book in books %}
+        <div class="card" style="width: 18rem;">
+            {% if book.profile_pic %}
+                <img src="{{ book.profile_pic.url }}" class="card-img-top" alt="...">
+            {% else %}
+                <img src="#" class="card-img-top" alt="don't have the image">
+            {% endif %}
+            <div class="card-body">
+
+                <h5 class="card-title">{{ book.title }}</h5>
+                <p class="card-text">
+                    {% if book.profile_pic %}
+                        profile pic : {{ book.profile_pic.url }} <br>
+                    {% endif %}
+                    {#                    profile pic : {{ book.profile_pic.url }} <br>#}
+                    Description :{{ book.description }} <br>
+                    Author : {{ book.author }} <br>
+                    Published : {{ book.is_published }} <br>
+
+                    Qualification : {{ book.qualification }} <br> <br>
+
+                </p>
+                <a href="#" class="btn btn-primary">{{ book.num_pages }}</a>
+
+            </div>
+        </div>
+    {% endfor %}
+
+
+
+    <br>
+    <h1>Table Data</h1>
+    <a class="btn btn-primary" href="{% url 'create_product' %}"> Create New Book</a>
+    <br>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">No of pages</th>
+            <th scope="col">Description</th>
+            <th scope="col">Qualification</th>
+            <th scope="col">Image</th>
+            <th scope="col">ACTION</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for book in books %}
+            <tr>
+                <th scope="row">{{ book.id }}</th>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.num_pages }}</td>
+                <td>{{ book.description }}</td>
+                <td>
+                    {% if book.qualification %}
+                        {{ book.qualification }}
+                    {% else %}
+                        It's an Empty
+
+                    {% endif %}
+
+
+                </td>
+                <td>
+                    {% if book.profile_pic %}
+                        Yes we have Profile PIc
+                    {% else %}
+                        No we dont have Profile PIc
+                    {% endif %}
+                </td>
+                <td>
+
+                    <a href="{% url 'product_update' book.id %}">Edit </a> <br>
+                    <a href="{% url 'book_delete' book.id %}"> Delete</a>
+                </td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
     <hr>
     <p>We have POlo Bransds</p>
 {% endblock %}

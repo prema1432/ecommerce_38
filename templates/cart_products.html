@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>cart product</h1>
+Error : {{ message }}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
