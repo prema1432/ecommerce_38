@@ -1,12 +1,16 @@
+# from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 
 from product.forms import BookForm
 from product.models import Book
+from user.models import CustomerUser
 
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    context = {}
+    context["users"] = CustomerUser.objects.all()
+    return render(request, 'index.html', context)
 
 
 # def index():

@@ -1,12 +1,23 @@
 {% extends 'base.html' %}
-
+{% load django_bootstrap5 %}
 {% block content %}
 
     <h1>cart product</h1>
-Error : {{ message }}
-    <form method="post" enctype="multipart/form-data">
+    Error : {{ message }}
+    <form method="post" enctype="multipart/form-data" class="form">
         {% csrf_token %}
-        {{ form }}
+                {% bootstrap_form form %}
+{#        <div class="row">#}
+{#            <div class="md-6">#}
+{#                {% bootstrap_field form.title %}#}
+{##}
+{#            </div>#}
+{#            <div class="md-6">#}
+{#                {% bootstrap_field form.author %}#}
+{##}
+{#            </div>#}
+{##}
+{#        </div>#}
 
         <button type="submit">Submit</button>
     </form>

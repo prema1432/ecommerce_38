@@ -37,8 +37,16 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "product.apps.ProductConfig",
     "cart.apps.CartConfig",
+    "django_bootstrap5",
+    "user.apps.UserConfig",
+
     # "product"
 ]
+
+AUTH_USER_MODEL = 'user.CustomerUser'
+
+# CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
